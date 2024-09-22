@@ -1,9 +1,9 @@
-
 // src/components/MeterReadingForm.js
 import React, { useState } from 'react';
 import axios from 'axios';
 
 function MeterReadingForm() {
+  const [personName, setPersonName] = useState('');
   const [readingDate, setReadingDate] = useState('');
   const [meterValue, setMeterValue] = useState('');
   const [message, setMessage] = useState('');
@@ -12,7 +12,9 @@ function MeterReadingForm() {
     e.preventDefault();
 
     try {
+      // Make a POST request to the backend API
       const response = await axios.post(`${process.env.REACT_APP_API_URL}/meterreadings`, {
+        personName,       // Include the person name in the request
         readingDate,
         meterValue: parseFloat(meterValue),
       });
@@ -27,6 +29,16 @@ function MeterReadingForm() {
   return (
     <div>
       <form onSubmit={handleSubmit}>
+        <div>
+          <label htmlFor="personName">Person Name:</label>
+          <input
+            type="text"
+            id="personName"
+            value={personName}
+            onChange={(e) => setPersonName(e.target.value)}
+            required
+          />
+        </div>
         <div>
           <label htmlFor="readingDate">Reading Date:</label>
           <input
