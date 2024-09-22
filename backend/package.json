@@ -1,22 +1,14 @@
 {
-    "name": "energy_dashboard",
+    "name": "backend",
     "version": "1.0.0",
     "private": true,
     "dependencies": {
-        "@azure/msal-browser": "^2.34.0",
-        "@azure/msal-react": "^1.5.3",
-        "axios": "^1.4.0",
-        "cors": "^2.8.5",
-        "mssql": "^11.0.1",
-        "react": "^18.2.0",
-        "react-dom": "^18.2.0",
-        "react-scripts": "5.0.1"
+      "axios": "^1.4.0",
+      "cors": "^2.8.5",
+      "mssql": "^11.0.1"
     },
     "scripts": {
-        "start": "react-scripts start",
-        "dev": "node index.js",
-        "build": "react-scripts build",
-        "test": "react-scripts test",
-        "eject": "react-scripts eject"
+      "dev": "node index.js"
     }
-}
+  }
+  
