@@ -15,7 +15,7 @@ app.get('/', (req, res) => {
 });
 
 // API Route for submitting meter readings
-app.post('/api/meterreading', (req, res) => {
+app.post('/api/meterreadings', (req, res) => {
   const { personName, readingDate, meterValue } = req.body;
 
   // Validation: Ensure all fields are present
