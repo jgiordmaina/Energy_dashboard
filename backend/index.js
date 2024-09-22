@@ -1,36 +1,46 @@
-// backend/index.js
-/**
- * @fileoverview Entry point for the Energy Dashboard backend server.
- * @requires express
- */
 const express = require('express');
 const cors = require('cors');
 const app = express();
 
-app.use(cors()); // Allow requests from frontend
-app.use(express.json()); // Parse JSON request bodies
+// Use environment variable PORT or default to 5000
+const port = process.env.PORT || 5000;
 
-// POST route to handle meter reading submissions
-app.post('/api/meterreadings', (req, res) => {
-/**
- * Destructures the `personName`, `readingDate`, and `meterValue` properties from the request body.
- *
- * @param {Object} req - The request object.
- * @param {Object} req.body - The body of the request.
- * @param {string} req.body.personName - The name of the person.
- * @param {string} req.body.readingDate - The date of the meter reading.
- * @param {number} req.body.meterValue - The value of the meter reading.
- */
-  const { personName, readingDate, meterValue } = req.body;
+// Middleware
+app.use(cors()); // Enable CORS for all routes, you can restrict origins if needed
+app.use(express.json()); // Middleware to parse JSON bodies
 
-  // Logic to process the data and save it to a database or perform other actions
-  console.log('Meter Reading Submitted:', { personName, readingDate, meterValue });
-
-  res.status(200).json({ message: 'Reading submitted successfully.' });
+// Root Route (to verify the backend is running)
+app.get('/', (req, res) => {
+  res.send('Meter Reading Backend is running.');
 });
 
-const PORT = process.env.PORT || 5000;
+// API Route for submitting meter readings
+app.post('/api/meterreading', (req, res) => {
+  const { personName, readingDate, meterValue } = req.body;
 
-app.listen(PORT, () => {
-  console.log(`Backend server running on port ${PORT}`);
+  // Validation: Ensure all fields are present
+  if (!personName || !readingDate || !meterValue) {
+    return res.status(400).json({ message: 'All fields are required.' });
+  }
+
+  // Here you would typically process the data (e.g., save it to a database)
+  // For this example, we'll just send a success response
+  res.status(200).json({
+    message: 'Reading submitted successfully.',
+    data: {
+      personName,
+      readingDate,
+      meterValue
+    }
+  });
+});
+
+// Catch-all Route for Non-Existent Routes
+app.use((req, res, next) => {
+  res.status(404).send('Route not found.');
+});
+
+// Start the server
+app.listen(port, () => {
+  console.log(`Backend running on port ${port}`);
 });
