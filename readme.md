@@ -46,49 +46,49 @@ Before starting, ensure that you have the following installed:
 
 To get started, clone the repository to your local machine:
 
-\`\`\`bash
+``` bash
 git clone https://github.com/yourusername/meter-reading-app.git
-\`\`\`
+```
 
 Navigate into the project directory:
 
-\`\`\`bash
+```bash
 cd meter-reading-app
-\`\`\`
+```
 
 ### Backend Setup
 
 1. **Navigate to the \`backend\` folder**:
 
-\`\`\`bash
+```bash
 cd backend
-\`\`\`
+```
 
 2. **Install Backend Dependencies**:
 
-\`\`\`bash
+```bash
 npm install
-\`\`\`
+```
 
 3. **Run the Backend**:
 
 Start the backend server using \`nodemon\` for auto-reload during development:
 
-\`\`\`bash
+```bash
 npm run dev
-\`\`\`
+```
 
 If \`nodemon\` is not installed, you can install it globally with:
 
-\`\`\`bash
+```bash
 npm install -g nodemon
-\`\`\`
+```
 
 Alternatively, you can run the server directly with \`node\`:
 
-\`\`\`bash
+```bash
 node index.js
-\`\`\`
+```
 
 The backend will run on \`http://localhost:5000\`.
 
@@ -99,21 +99,21 @@ The backend exposes an API endpoint for submitting meter readings. You can test 
 - **POST** \`http://localhost:5000/api/meterreadings\`
 - **Sample Request Body**:
 
-\`\`\`json
+```json
 {
   "personName": "John Doe",
   "readingDate": "2024-09-22",
   "meterValue": 1234.56
 }
-\`\`\`
+```
 
 - **Response**:
 
-\`\`\`json
+```json
 {
   "message": "Reading submitted successfully."
 }
-\`\`\`
+```
 
 ---
 
@@ -121,31 +121,31 @@ The backend exposes an API endpoint for submitting meter readings. You can test 
 
 1. **Navigate to the \`frontend\` folder**:
 
-\`\`\`bash
+```bash
 cd frontend
-\`\`\`
+```
 
 2. **Install Frontend Dependencies**:
 
-\`\`\`bash
+```bash
 npm install
-\`\`\`
+```
 
 3. **Set Up Environment Variables**:
 
 In the \`frontend\` directory, create a \`.env\` file with the following contents to set the backend API URL:
 
-\`\`\`env
+```env
 REACT_APP_API_URL=http://localhost:5000/api
-\`\`\`
+```
 
 4. **Run the Frontend**:
 
 Start the React development server:
 
-\`\`\`bash
+```bash
 npm start
-\`\`\`
+```
 
 The React app will run on \`http://localhost:3000\`.
 
@@ -157,15 +157,15 @@ The React app will run on \`http://localhost:3000\`.
 
 1. Navigate to the \`backend\` directory:
 
-\`\`\`bash
+```bash
 cd backend
-\`\`\`
+```
 
 2. Run the backend server:
 
-\`\`\`bash
+```bash
 npm run dev
-\`\`\`
+```
 
 The backend will be available at \`http://localhost:5000\`.
 
@@ -173,15 +173,15 @@ The backend will be available at \`http://localhost:5000\`.
 
 1. Navigate to the \`frontend\` directory:
 
-\`\`\`bash
+```bash
 cd frontend
-\`\`\`
+```
 
 2. Start the frontend React development server:
 
-\`\`\`bash
+```bash
 npm start
-\`\`\`
+```
 
 The frontend will be available at \`http://localhost:3000\`.
 
@@ -205,27 +205,27 @@ To manually test the backend:
 1. Open **Postman** or use **cURL**.
 2. Make a \`POST\` request to the backend API:
 
-\`\`\`bash
+```bash
 POST http://localhost:5000/api/meterreadings
-\`\`\`
+```
 
 3. Include the following JSON in the request body:
 
-\`\`\`json
+```json
 {
   "personName": "John Doe",
   "readingDate": "2024-09-22",
   "meterValue": 1234.56
 }
-\`\`\`
+```
 
 4. Check the response. It should return:
 
-\`\`\`json
+```json
 {
   "message": "Reading submitted successfully."
 }
-\`\`\`
+```
 
 ---
 
@@ -234,24 +234,24 @@ POST http://localhost:5000/api/meterreadings
 ### Issue 1: \`nodemon\` Not Installed
 If \`nodemon\` is not recognized when running \`npm run dev\`, install it globally:
 
-\`\`\`bash
+```bash
 npm install -g nodemon
-\`\`\`
+```
 
 ### Issue 2: CORS Issues
 If you encounter CORS issues when submitting from the frontend to the backend, make sure CORS is enabled in the backend:
 
-\`\`\`javascript
+```javascript
 const cors = require('cors');
 app.use(cors());
-\`\`\`
+```
 
 ### Issue 3: Environment Variables Not Loaded
 Ensure that the \`.env\` file is correctly set up in the frontend with the backend API URL:
 
-\`\`\`env
+```env
 REACT_APP_API_URL=http://localhost:5000/api
-\`\`\`
+```
 
 ---
 
