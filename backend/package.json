@@ -1,5 +1,5 @@
 {
-    "name": "meter-reading-frontend",
+    "name": "energy_dashboard",
     "version": "1.0.0",
     "private": true,
     "dependencies": {
