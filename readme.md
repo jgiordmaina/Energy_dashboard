@@ -368,4 +368,3 @@ REACT_APP_API_URL=http://localhost:5000/api
 By following these instructions, you will be able to run both the backend and frontend of the **Meter Reading Application** locally. You can submit readings through the form on the frontend and receive them on the backend, which can be tested with Postman or cURL.
 
 Feel free to reach out if you encounter any issues or need further assistance!
-..
