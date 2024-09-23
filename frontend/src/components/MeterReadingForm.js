@@ -13,7 +13,7 @@ function MeterReadingForm() {
 
     try {
       // Make a POST request to the backend API
-        await axios.post(`${process.env.REACT_APP_API_URL}/meterreadings`, {
+        await axios.post(`${process.env.REACT_APP_API_URL}/api/meterreadings`, {
         personName,       // Include the person name in the request
         readingDate,
         meterValue: parseFloat(meterValue),
