@@ -17,8 +17,8 @@ function MeterReadingForm() {
       const apiUrl = process.env.REACT_APP_API_URL;
 
         //await axios.post(`${process.env.REACT_APP_API_URL}/api/meterreadings`, {
-        await axios.post(`${apiUrl}/api/meterreadings`, {
-
+        //await axios.post(`${apiUrl}/api/meterreadings`, {
+          await axios.post(`https://happy-moss-043d9131e.5.azurestaticapps.net/api/meterreadings`, {
         personName,       // Include the person name in the request
         readingDate,
         meterValue: parseFloat(meterValue),
